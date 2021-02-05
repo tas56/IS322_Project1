@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">-->
+    <!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <title>Pendants</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">Pretty Pendants</div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+        </ul>
+    </nav>
+<div class="container">
+
+    <div class="filter-wrapper">
+        <div class="form-group">
+            <label for="orderBy">Order By</label>
+            <select name="orderBy" id="orderBy">
+                <option value="name">Name(A-Z)</option>
+                <option value="lowPrice">Lowest - Highest</option>
+                <option value="highPrice">Highest - Lowest</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="filter">Filters</label>
+            <select name="filter" id="filter">
+                <option value="name">Name</option>
+                <option value="lowPrice">Lowest - Highest</option>
+                <option value="highPrice">Highest - Lowest</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="products"></div>
+
+
+
+</div>
+
+
+
+<footer>
+    <p>Copyright &copy; Pretty Pendants, LLC</p>
+    <p>(800)555-5555</p>
+    <p>123 Sesame Street, Newark NJ 00000</p>
+</footer>
+
+<script src="scripts/productList.js"></script>
+<script src="scripts/header.js"></script>
+</body>
+</html>
