@@ -6,11 +6,23 @@ body {
     font-family: Arial, serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 
 /* ===================================
  NAV
 ==================================== */
+
+nav {
+    position: sticky;
+    top: 0;
+}
 
 .navbar {
     display: flex;
@@ -42,7 +54,7 @@ body {
     display: block;
 }
 
-navbar-links li:hover {
+.navbar-links li:hover {
     background-color: #555;
 }
 
@@ -95,3 +107,42 @@ navbar-links li:hover {
         display: flex;
     }
 }
+
+/* ===================================
+ # CAROUSEL
+==================================== */
+
+#carousel img {
+    display: none;
+}
+
+#carousel img.active {
+    display: block;
+}
+
+
+/* ===================================
+ FOOTER
+==================================== */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        justify-content: center;
+    }
+    footer p {
+        margin: .5rem;
+    }
+}
+
