@@ -27,16 +27,16 @@
 
     <div class="filter-wrapper">
         <div class="form-group">
-            <label for="orderBy">Order By:</label>
+            <label for="orderBy">Order By:</label><br />
             <select name="orderBy" id="orderBy">
                 <option value="none">none</option>
                 <option value="name">Name(A-Z)</option>
-                <option value="lowPrice">Lowest - Highest</option>
-                <option value="highPrice">Highest - Lowest</option>
+                <option value="lowPrice">$ (Lowest - Highest)</option>
+                <option value="highPrice">$ (Highest - Lowest)</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="priceRange">Price Range:</label>
+            <label for="priceRange">Price Range:</label><br />
             <select name="priceRange" id="priceRange">
                 <option value="below10">< $10</option>
                 <option value="10-50">$10 - $50</option>
@@ -44,8 +44,9 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="category">Category:</label>
+            <label for="category">Category:</label><br />
             <select name="category" id="category">
+                <option value="all">All</option>
                 <option value="glass">Glass</option>
                 <option value="silver">Silver</option>
                 <option value="gold">Gold</option>
