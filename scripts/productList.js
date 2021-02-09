@@ -38,29 +38,32 @@
     });
 
     function orderBy(sortValue){
-        if(sortValue === 'name'){
-            let sortedCompanies = mockDatabase.sort((a,b) => {
-                let nameA = a.name.toUpperCase();
-                let nameB = b.name.toUpperCase();
-                if (nameA < nameB ){
-                    return -1;
-                } else return 1;
-            });
-            renderList(sortedCompanies);
-        } else if (sortValue === 'lowPrice'){
-           const sortedLowToHigh = mockDatabase.sort( (a,b) =>{
-               if(a.price > b.price){
-                   return 1;
-               } else return -1;
-           });
-            renderList(sortedLowToHigh);
-        } else if (sortValue === 'highPrice'){
-            const sortedHighToLow = mockDatabase.sort( (a,b) =>{
-                if(b.price > a.price){
-                    return 1;
-                } else return -1;
-            });
-            renderList(sortedHighToLow);
+        switch (sortValue) {
+            case 'name':
+                renderList( mockDatabase.sort((a,b) => {
+                    let nameA = a.name.toUpperCase();
+                    let nameB = b.name.toUpperCase();
+                    if (nameA < nameB ){
+                        return -1;
+                    } else return 1;
+                }));
+                break;
+            case 'lowPrice':
+                renderList( mockDatabase.sort( (a,b) =>{
+                    if(a.price > b.price){
+                        return 1;
+                    } else return -1;
+                }));
+                break;
+            case 'highPrice':
+                renderList( mockDatabase.sort( (a,b) =>{
+                    if(b.price > a.price){
+                        return 1;
+                    } else return -1;
+                }));
+                break;
+            default:
+                renderList(mockDatabase);
         }
     }
 
@@ -69,19 +72,19 @@
     });
 
     function category(category) {
-        if(category === 'glass'){
-            let glass = mockDatabase.filter(db => db.category === 'glass');
-            renderList(glass);
-        } else if(category === 'silver'){
-            let silver = mockDatabase.filter(db => db.category === 'silver');
-            renderList(silver);
-        }  else if(category === 'gold'){
-            let gold = mockDatabase.filter(db => db.category === 'gold');
-            renderList(gold);
-        } else if(category === 'all') { renderList(mockDatabase) }
+        switch (category) {
+            case 'glass':
+                renderList(mockDatabase.filter(db => db.category === 'glass'));
+                break;
+            case 'silver':
+                renderList(mockDatabase.filter(db => db.category === 'silver'));
+                break;
+            case 'gold':
+                renderList(mockDatabase.filter(db => db.category === 'gold'));
+                break;
+            default:
+                renderList(mockDatabase);
+        }
     }
-
-
-
 
 })();
