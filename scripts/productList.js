@@ -1,7 +1,7 @@
 (function (){
 
-    var mockDatabase = [
-        {id: 1, name: "Tree Of Life", category: "silver", price: "$48.50", description:"Super cool space pendant", image: "img/treeOfLife.jpg"},
+    let mockDatabase = [
+        {id: 1, name: "Tree Of Life", category: "silver", price: "$48.50", description:"Super cool space pendant", sale: false, image: "img/treeOfLife.jpg"},
         {id: 2, name: "Peace", category: "gold", price: "$28.50", description:"", image: "img/peace.jpg"},
         {id: 3, name: "Milky Way", category: "glass", price: "$18.50", description:"", image: "img/space.jpg"},
         {id: 4, name: "Dark Gems", category: "glass", price: "$99.50", description:"", image: "img/darkgems.jpg"},
@@ -13,11 +13,11 @@
     ];
 
     function renderList(results){
-        var productSection = document.querySelector('#products');
+        let productSection = document.querySelector('#products');
 
         productSection.innerHTML = '';
 
-        var productList = results.map(function (result) {
+        let productList = results.map( result => {
             return '<div class="card">' +
                 '  <img src=" ' + result.image + ' " alt="">' +
                 '  <div class="card-container">' +
@@ -27,35 +27,44 @@
                 '</div>'
         });
 
-        productList.forEach(function (row) {
-           productSection.innerHTML += row;
-        });
+        productList.forEach( row => { productSection.innerHTML += row; });
     }
 
     renderList(mockDatabase);
 
-    function orderBy(sortValue) {
-        var sortedResults = (sortValue === 'name') ?
-            mockDatabase.sort( function (a,b) {
-                var nameA = a.name.toUpperCase();
-                var nameB = b.name.toUpperCase();
 
-                if (nameA < nameB ){
-                    return -1;
-                }
-                if (nameA > nameB) {
-                    return 1;
-                }
-            }) :
-            mockDatabase.sort(function (a,b) {
-                return a[sortValue] - b[sortValue];
-            });
-        renderList(sortedResults);
-    };
-
-    document.querySelector('#orderBy').addEventListener('change', function (event){
+    document.querySelector('#orderBy').addEventListener('change',  (event) => {
         orderBy(event.target.value);
     });
+
+    function orderBy(sortValue){
+        if(sortValue === 'name'){
+            const sortedCompanies = mockDatabase.sort((a,b) => {
+                let nameA = a.name.toUpperCase();
+                let nameB = b.name.toUpperCase();
+                if (nameA < nameB ){
+                    return -1;
+                } else return 1;
+            });
+            renderList(sortedCompanies);
+        } else if (sortValue === 'lowPrice'){
+           const sortedLowToHigh = mockDatabase.sort( (a,b) =>{
+               if(a.price > b.price){
+                   return 1;
+               } else return -1;
+           });
+            renderList(sortedLowToHigh);
+        } else if (sortValue === 'highPrice'){
+            const sortedHighToLow = mockDatabase.sort( (a,b) =>{
+                if(b.price > a.price){
+                    return 1;
+                } else return -1;
+            });
+            renderList(sortedHighToLow);
+        }
+    }
+
+
 
 
 })();
