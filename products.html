@@ -27,6 +27,7 @@
         <div class="form-group">
             <label for="orderBy">Order By:</label><br />
             <select name="orderBy" id="orderBy">
+                <option value="none">None</option>
                 <option value="name">Name(A-Z)</option>
                 <option value="lowPrice">$ (Lowest - Highest)</option>
                 <option value="highPrice">$ (Highest - Lowest)</option>
@@ -35,9 +36,12 @@
         <div class="form-group">
             <label for="priceRange">Price Range:</label><br />
             <select name="priceRange" id="priceRange">
-                <option value="below10">< $10</option>
-                <option value="10-50">$10 - $50</option>
-                <option value="above50"> > $50 </option>
+                <option value="all">All</option>
+                <option value="belowTwenty">< $20</option>
+                <option value="twenty">$20-$29.99 </option>
+                <option value="thirty">$30-$39.99 </option>
+                <option value="forty">$40-$49.99 </option>
+                <option value="aboveFifty">> $50 </option>
             </select>
         </div>
         <div class="form-group">
@@ -52,6 +56,7 @@
     </div>
 
     <div id="products"></div>
+
 
 
 
