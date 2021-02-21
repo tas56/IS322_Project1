@@ -39,36 +39,36 @@
 
     function orderBy(sortValue){
 
-        const cloneDb = [...mockDatabase];
+        let cloneDb = [...mockDatabase];
 
         switch (sortValue) {
             case 'name':
-                renderList( cloneDb.sort((a,b) =>{
+                cloneDb.sort((a,b) =>{
                     let nameA = a.name.toUpperCase();
                     let nameB = b.name.toUpperCase();
                     if (nameA < nameB ){
                         return -1;
                     } else return 1;
-                }));
+                });
                 break;
             case 'lowPrice':
-                renderList( cloneDb.sort( (a,b) =>{
+                cloneDb.sort( (a,b) =>{
                     if(a.price > b.price){
                         return 1;
                     } else return -1;
-                }));
+                });
                 break;
             case 'highPrice':
-                renderList( cloneDb.sort( (a,b) =>{
+                cloneDb.sort( (a,b) =>{
                     if(b.price > a.price){
                         return 1;
                     } else return -1;
-                }));
+                });
                 break;
             default:
-                renderList(mockDatabase);
+                cloneDb = [...mockDatabase];
         }
-
+        renderList(cloneDb);
     }
 
     document.querySelector('#category').addEventListener('change',  (event) => {

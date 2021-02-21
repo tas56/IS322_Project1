@@ -10,6 +10,11 @@ html, body {
     padding: 0;
 }
 
+.page-container{
+    position: relative;
+    min-height: 100vh;
+}
+
 .container {
     width: 90%;
     max-width: 1024px;
@@ -78,6 +83,19 @@ nav {
 }
 
 /* ===================================
+ # about-us
+==================================== */
+
+#about-us {
+    background: #c1c1c1;
+    padding: 15px;
+}
+
+#about-us p {
+    line-height: 1.5rem;
+}
+
+/* ===================================
  # CAROUSEL
 ==================================== */
 
@@ -107,8 +125,8 @@ nav {
     padding: 10px;
 }
 
-.filter-wrapper .form-group label {
-    font-weight: bold;
+.filter-wrapper .form-group select {
+    margin-top: 10px;
 }
 
 #products {
